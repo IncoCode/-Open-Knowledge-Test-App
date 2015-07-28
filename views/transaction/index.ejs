@@ -1,0 +1,40 @@
+<form action="/transaction/find" method="POST" id="sign-up-form" class="form-signin">
+    <input type="text" placeholder="DepartmentalFamily" name="DepartmentalFamily">
+    <input type="text" placeholder="Entity" name="Entity">
+    <input type="text" placeholder="Date" name="Date">
+    <input type="text" placeholder="ExpenseType" name="ExpenseType">
+    <input type="text" placeholder="ExpenseArea" name="ExpenseArea">
+    <input type="text" placeholder="Supplier" name="Supplier">
+    <input type="text" placeholder="TransactionNumber" name="TransactionNumber">
+    <input type="text" placeholder="Amount" name="Amount">
+    <input type="text" placeholder="Description" name="Description">
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>DepartmentalFamily</th>
+        <th>Entity</th>
+        <th>Date</th>
+        <th>ExpenseType</th>
+        <th>ExpenseArea</th>
+        <th>Supplier</th>
+        <th>TransactionNumber</th>
+        <th>Amount</th>
+        <th>Description</th>
+    </tr>
+
+    <% _.each(transactions, function(transaction) { %>
+    <tr>
+        <th><%= transaction.DepartmentalFamily %></th>
+        <th><%= transaction.Entity %></th>
+        <th><%= transaction.Date %></th>
+        <th><%= transaction.ExpenseType %></th>
+        <th><%= transaction.ExpenseArea %></th>
+        <th><%= transaction.Supplier %></th>
+        <th><%= transaction.TransactionNumber %></th>
+        <th><%= transaction.Amount %></th>
+        <th><%= transaction.Description %></th>
+    </tr>
+    <% }) %>
+</table>

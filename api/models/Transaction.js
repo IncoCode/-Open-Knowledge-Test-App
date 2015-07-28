@@ -1,31 +1,31 @@
 module.exports = {
 
   attributes: {
-    departmentalFamily: {
+    DepartmentalFamily: {
       type: 'string'
     },
-    entity: {
+    Entity: {
       type: 'string'
     },
-    date: {
+    Date: {
       type: 'date'
     },
-    expenseType: {
+    ExpenseType: {
       type: 'string'
     },
-    expenseArea: {
+    ExpenseArea: {
       type: 'string'
     },
-    supplier: {
+    Supplier: {
       type: 'string'
     },
-    transactionNumber: {
+    TransactionNumber: {
       type: 'string'
     },
-    amount: {
+    Amount: {
       type: 'float'
     },
-    description: {
+    Description: {
       type: 'string'
     }
   }
