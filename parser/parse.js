@@ -10,6 +10,11 @@ module.exports = function (csvContent, model) {
             value = _.transform(value, function (res, v, key) {
                 res[key.replace(' ', '')] = v;
             });
+            if (_.every(value, function (val) {
+                    return val === '';
+                })) {
+                return Promise.resolve();
+            }
             // date
             if (value.Date) {
                 value.Date = new Date(value.Date);
@@ -18,17 +23,18 @@ module.exports = function (csvContent, model) {
 
             }
             else {
-                value.Date = new Date();
+                return Promise.resolve();
             }
+
             // numbers
             if (value.Amount) {
                 value.Amount = parseFloat(value.Amount.replace(',', ''));
             }
             if (!value.Amount || isNaN(value.Amount)) {
-                value.Amount = 0;
+                return Promise.resolve();
             }
 
-            return model.create(value);
+            return Transaction.create(value);
         });
 
         Promise
