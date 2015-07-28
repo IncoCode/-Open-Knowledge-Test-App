@@ -1,0 +1,4 @@
+#data tr:first-child th {
+    text-decoration: underline;
+    font-size: 16px;
+}

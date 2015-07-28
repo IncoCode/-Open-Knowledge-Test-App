@@ -10,12 +10,24 @@ module.exports = function (csvContent, model) {
             value = _.transform(value, function (res, v, key) {
                 res[key.replace(' ', '')] = v;
             });
+            // date
             if (value.Date) {
                 value.Date = new Date(value.Date);
                 if (value.Date.getTime() !== value.Date.getTime()) // NaN != NaN
                     value.Date = new Date();
 
             }
+            else {
+                value.Date = new Date();
+            }
+            // numbers
+            if (value.Amount) {
+                value.Amount = parseFloat(value.Amount.replace(',', ''));
+            }
+            if (!value.Amount || isNaN(value.Amount)) {
+                value.Amount = 0;
+            }
+
             return model.create(value);
         });
 

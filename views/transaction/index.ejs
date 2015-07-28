@@ -1,4 +1,15 @@
-<form action="/transaction/find" method="POST" id="sign-up-form" class="form-signin">
+<form action="/transaction/parseData" method="POST">
+    <h3>Parse new data</h3>
+
+    <label for="csvUrl">Enter url to csv:</label>
+    <input name="csvUrl" placeholder="http://site.com/file.csv">
+    <button type="submit" class="btn btn-primary">Parse</button>
+</form>
+
+<form action="/transaction/find" method="POST">
+    <h3>Search</h3>
+
+
     <input type="text" placeholder="DepartmentalFamily" name="DepartmentalFamily">
     <input type="text" placeholder="Entity" name="Entity">
     <input type="text" placeholder="Date" name="Date">
@@ -11,7 +22,9 @@
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
-<table class="table">
+<h3>Data</h3>
+
+<table class="table table-striped" id="data">
     <tr>
         <th>DepartmentalFamily</th>
         <th>Entity</th>
